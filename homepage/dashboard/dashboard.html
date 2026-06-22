@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty — Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        
+        <nav class="main-sidebar">
+            <div class="logo">
+                <img src="../assets/tasklogo.png" style="width: 180px; height: 70px;" alt="Oppty Logo">
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="dashboard.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="9"></rect>
+                            <rect x="14" y="3" width="7" height="5"></rect>
+                            <rect x="14" y="12" width="7" height="9"></rect>
+                            <rect x="3" y="16" width="7" height="5"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../teams/teams.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Teams</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../tasks/tasks.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <div class="main-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-left">
+                    <h1>Welcome Back 👋</h1>
+                    <p>Here's what's happening across your organization today</p>
+                </div>
+                <div class="header-date" id="currentDate"></div>
+            </div>
+
+            <!-- Stats Overview -->
+            <div class="stats-overview">
+                <div class="stat-box">
+                    <div class="stat-icon stat-icon-orange">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="todayTasksCount">8</span>
+                        <span class="stat-title">Today's Tasks</span>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon stat-icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="completedCount">24</span>
+                        <span class="stat-title">Completed</span>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon stat-icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="teamsCount">5</span>
+                        <span class="stat-title">Active Teams</span>
+                    </div>
+                </div>
+
+                <div class="stat-box">
+                    <div class="stat-icon stat-icon-red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                            <line x1="12" y1="9" x2="12" y2="13"></line>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                    </div>
+                    <div class="stat-content">
+                        <span class="stat-value" id="overdueCount">3</span>
+                        <span class="stat-title">Overdue</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Grid -->
+            <div class="dashboard-grid">
+                
+                <!-- Today's Tasks -->
+                <div class="widget widget-today-tasks">
+                    <div class="widget-header">
+                        <div>
+                            <h2>Today's Tasks</h2>
+                            <p>Tasks due today across all teams</p>
+                        </div>
+                        <a href="tasks/tasks.html" class="widget-link">View All →</a>
+                    </div>
+                    <div class="widget-body">
+                        <div class="task-item">
+                            <div class="task-check">
+                                <input type="checkbox" id="t1">
+                                <label for="t1"></label>
+                            </div>
+                            <div class="task-details">
+                                <div class="task-title">Update Payroll Module</div>
+                                <div class="task-meta">
+                                    <span class="task-team">Engineering</span>
+                                    <span class="task-time">⏰ Due 5:00 PM</span>
+                                </div>
+                            </div>
+                            <span class="priority-badge priority-high">High</span>
+                        </div>
+
+                        <div class="task-item">
+                            <div class="task-check">
+                                <input type="checkbox" id="t2">
+                                <label for="t2"></label>
+                            </div>
+                            <div class="task-details">
+                                <div class="task-title">Design Review Meeting</div>
+                                <div class="task-meta">
+                                    <span class="task-team">Design</span>
+                                    <span class="task-time">⏰ Due 3:00 PM</span>
+                                </div>
+                            </div>
+                            <span class="priority-badge priority-medium">Medium</span>
+                        </div>
+
+                        <div class="task-item">
+                            <div class="task-check">
+                                <input type="checkbox" id="t3" checked>
+                                <label for="t3"></label>
+                            </div>
+                            <div class="task-details">
+                                <div class="task-title task-completed">Submit Quarterly Report</div>
+                                <div class="task-meta">
+                                    <span class="task-team">Finance</span>
+                                    <span class="task-time">✓ Completed</span>
+                                </div>
+                            </div>
+                            <span class="priority-badge priority-low">Low</span>
+                        </div>
+
+                        <div class="task-item">
+                            <div class="task-check">
+                                <input type="checkbox" id="t4">
+                                <label for="t4"></label>
+                            </div>
+                            <div class="task-details">
+                                <div class="task-title">Client Onboarding Call</div>
+                                <div class="task-meta">
+                                    <span class="task-team">Sales</span>
+                                    <span class="task-time">⏰ Due 6:30 PM</span>
+                                </div>
+                            </div>
+                            <span class="priority-badge priority-high">High</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Task Updates / Activity Feed -->
+                <div class="widget widget-updates">
+                    <div class="widget-header">
+                        <div>
+                            <h2>Recent Updates</h2>
+                            <p>Latest activity from your teams</p>
+                        </div>
+                        <span class="live-indicator">● Live</span>
+                    </div>
+                    <div class="widget-body">
+                        <div class="update-item">
+                            <div class="update-avatar avatar-orange">MK</div>
+                            <div class="update-content">
+                                <p><strong>Manikanta</strong> completed "API Integration Task"</p>
+                                <span class="update-time">2 minutes ago</span>
+                            </div>
+                        </div>
+
+                        <div class="update-item">
+                            <div class="update-avatar avatar-blue">DR</div>
+                            <div class="update-content">
+                                <p><strong>Dharmaraju</strong> created a new task in <em>Engineering</em></p>
+                                <span class="update-time">15 minutes ago</span>
+                            </div>
+                        </div>
+
+                        <div class="update-item">
+                            <div class="update-avatar avatar-green">PD</div>
+                            <div class="update-content">
+                                <p><strong>Padmaja</strong> joined the <em>Design Team</em></p>
+                                <span class="update-time">1 hour ago</span>
+                            </div>
+                        </div>
+
+                        <div class="update-item">
+                            <div class="update-avatar avatar-purple">SL</div>
+                            <div class="update-content">
+                                <p><strong>Saleem</strong> updated "Database Migration" status</p>
+                                <span class="update-time">3 hours ago</span>
+                            </div>
+                        </div>
+
+                        <div class="update-item">
+                            <div class="update-avatar avatar-orange">RV</div>
+                            <div class="update-content">
+                                <p><strong>Ravi</strong> uploaded files to <em>Marketing</em></p>
+                                <span class="update-time">5 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teams List -->
+                <div class="widget widget-teams">
+                    <div class="widget-header">
+                        <div>
+                            <h2>Teams Overview</h2>
+                            <p>All active teams in your organization</p>
+                        </div>
+                        <a href="teams/teams.html" class="widget-link">View All →</a>
+                    </div>
+                    <div class="widget-body">
+                        <div class="team-row">
+                            <div class="team-icon-small">💻</div>
+                            <div class="team-info-small">
+                                <div class="team-name">Engineering</div>
+                                <div class="team-dept">Product · 12 members</div>
+                            </div>
+                            <div class="team-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 75%"></div></div>
+                                <span class="progress-text">75%</span>
+                            </div>
+                        </div>
+
+                        <div class="team-row">
+                            <div class="team-icon-small">🎨</div>
+                            <div class="team-info-small">
+                                <div class="team-name">Design</div>
+                                <div class="team-dept">Product · 6 members</div>
+                            </div>
+                            <div class="team-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 60%"></div></div>
+                                <span class="progress-text">60%</span>
+                            </div>
+                        </div>
+
+                        <div class="team-row">
+                            <div class="team-icon-small">📈</div>
+                            <div class="team-info-small">
+                                <div class="team-name">Marketing</div>
+                                <div class="team-dept">Growth · 8 members</div>
+                            </div>
+                            <div class="team-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 85%"></div></div>
+                                <span class="progress-text">85%</span>
+                            </div>
+                        </div>
+
+                        <div class="team-row">
+                            <div class="team-icon-small">💰</div>
+                            <div class="team-info-small">
+                                <div class="team-name">Finance</div>
+                                <div class="team-dept">Operations · 4 members</div>
+                            </div>
+                            <div class="team-progress">
+                                <div class="progress-bar"><div class="progress-fill" style="width: 92%"></div></div>
+                                <span class="progress-text">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Members List -->
+                
+
+            </div>
+        </div>
+    </div>
+    <script src="dashboard.js"></script>
+</body>
+</html>

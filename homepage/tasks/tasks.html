@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty - Tasks Management</title>
+    <!-- Phosphor Icons -->
+     <link rel="stylesheet" href="tasks.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div class="app-layout">
+        
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/tasklogo.png" style="width: 150px; height: 60px;" alt="Oppty Logo">
+            </div>
+            <nav class="sidebar-nav">
+                <a href="../dashboard/dashboard.html" class="nav-item">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="9"></rect>
+                        <rect x="14" y="3" width="7" height="5"></rect>
+                        <rect x="14" y="12" width="7" height="9"></rect>
+                        <rect x="3" y="16" width="7" height="5"></rect>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="../teams/teams.html" class="nav-item">
+                    <i class="ph ph-users" style="font-size: 1.25rem;"></i>
+                    <span>Teams</span>
+                </a>
+                <a href="#" class="nav-item active">
+                    <i class="ph ph-check-square-offset" style="font-size: 1.25rem;"></i>
+                    <span>Tasks</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <header class="page-header">
+                <div>
+                    <h1>Tasks Management</h1>
+                    <p class="subtitle">View and manage all active track items across departments</p>
+                </div>
+                <div class="team-filter">
+                    <select id="teamSelectDropdown">
+                        <option value="ALL">All Teams</option>
+                        <!-- Options injected by JS -->
+                    </select>
+                </div>
+            </header>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <div class="tab active" data-tab="pending">
+                    <i class="ph ph-clock"></i> Pending <span class="tab-badge" id="countPending">0</span>
+                </div>
+                <div class="tab" data-tab="overdue">
+                    <i class="ph ph-warning-circle"></i> Overdue <span class="tab-badge" id="countOverdue">0</span>
+                </div>
+                <div class="tab" data-tab="completed">
+                    <i class="ph ph-check-circle"></i> Completed <span class="tab-badge" id="countCompleted">0</span>
+                </div>
+            </div>
+
+            <!-- Task List Container -->
+            <div class="task-list" id="tasksContainer">
+                <div style="padding: 40px; text-align: center; color: var(--text-muted);">Loading tasks...</div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- View Task Details Modal -->
+    <div class="modal-overlay" id="viewTaskModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="viewTaskTitle">Task Details</h2>
+                <button class="modal-close" id="closeViewTaskBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: 700; color: #4b5563; font-size: 0.85rem; text-transform: uppercase;">Description</label>
+                    <p id="viewTaskDesc" style="margin-top: 5px; color: #111827; font-size: 0.95rem; line-height: 1.5;"></p>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: 700; color: #4b5563; font-size: 0.85rem; text-transform: uppercase;">Current Status</label>
+                    <div style="margin-top: 8px;">
+                        <span id="viewTaskStatus" style="padding: 6px 12px; background: #fff7ed; color: #ea580c; border-radius: 6px; font-weight: 600; font-size: 0.85rem;"></span>
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label style="font-weight: 700; color: #4b5563; font-size: 0.85rem; text-transform: uppercase;">
+    📋 Status Update History
+</label>
+<div id="viewTaskNotes" style="margin-top: 8px; background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; color: #334155; font-size: 0.95rem; min-height: 80px; max-height: 350px; overflow-y: auto;">
+</div>
+                </div>
+
+                <div style="margin-bottom: 10px;">
+                    <label style="font-weight: 700; color: #4b5563; font-size: 0.85rem; text-transform: uppercase;">Attached File</label>
+                    <div id="viewTaskFileContainer" style="margin-top: 8px; padding: 15px; border: 1px dashed #cbd5e1; border-radius: 8px; background: #f8fafc; text-align: center;">
+                        <!-- File link injected here via JS -->
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="cancel-btn" id="cancelViewTaskBtn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Logic -->
+    <script src="tasks.js"></script>
+</body>
+</html>

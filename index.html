@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oppty - Task Management Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="nav-logo">
+          <img src="../homepage/assets/tasklogo.png" style="width: 180px; height: 70px;" class="logo-img" alt="Oppty Logo" />
+        </a>
+
+        <a href="https://theoppty.com" target="_blank" class="btn btn-outline">
+                    <i class="ph ph-users-three"></i> <span>HRMS Login</span>
+                </a>
+                <a href="https://chat.theoppty.com" target="_blank" class="btn btn-outline">
+                    <i class="ph ph-chats-circle"></i> <span>Oppty Chat</span>
+                </a>
+                
+                <button class="btn btn-outline" id="openAdminModalBtn">
+                    <i class="ph ph-shield-check"></i> <span>Admin Login</span>
+                </button>
+      </div>
+    </nav>
+
+    <main class="hero-section">
+      <div class="bg-shape shape-1"></div>
+      <div class="bg-shape shape-2"></div>
+
+      <div class="hero-container">
+        <div class="hero-content">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span> Oppty Workspace v2.0
+          </div>
+          <h1 class="hero-title">Manage your tasks with clarity and focus.</h1>
+          <p class="hero-subtitle">
+            Log in to your Oppty employee dashboard to track active tasks,
+            submit updates, and manage your timesheets—all in one place.
+          </p>
+          <div class="features-list">
+            <div class="feature-item">
+              <div class="feature-icon-wrapper">
+                <i class="ph ph-check"></i>
+              </div>
+              <span>Real-time tracking</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrapper">
+                <i class="ph ph-check"></i>
+              </div>
+              <span>Seamless approvals</span>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon-wrapper">
+                <i class="ph ph-check"></i>
+              </div>
+              <span>Integrated timesheets</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-form-wrapper">
+          <div class="login-card">
+            <div class="card-header">
+              <h2>Employee Login</h2>
+              <p>Welcome back! Please enter your details.</p>
+            </div>
+
+            <form id="employeeLoginForm">
+              <div class="form-group">
+                <label for="empEmail">Email or Employee ID</label>
+                <div class="input-with-icon">
+                  <i class="ph ph-envelope-simple"></i>
+                  <input
+                    type="email"
+                    id="empEmail"
+                    class="form-control"
+                    placeholder="name@oppty.in"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group mt-4">
+                <div class="label-row">
+                  <label for="empPassword">Password</label>
+                  <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+                <div class="input-with-icon">
+                  <i class="ph ph-lock-key"></i>
+                  <input
+                    type="password"
+                    id="empPassword"
+                    class="form-control"
+                    placeholder="••••••••"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="form-group checkbox-group mt-4">
+                <input type="checkbox" id="rememberMe" />
+                <label for="rememberMe" class="font-normal"
+                  >Remember me for 30 days</label
+                >
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block mt-4">
+                Sign In
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal-overlay" id="adminModal">
+      <div class="modal-box admin-modal">
+        <div class="modal-header">
+          <h3>Admin Portal</h3>
+          <button class="close-modal" id="closeAdminModalBtn">
+            <i class="ph ph-x"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="admin-warning mb-4">
+            <i class="ph ph-warning-circle"></i>
+            <span>Restricted access. Authorized personnel only.</span>
+          </div>
+
+          <form id="adminLoginForm">
+            <div class="form-group">
+              <label for="adminEmail">Admin Email</label>
+              <input
+                type="email"
+                id="adminEmail"
+                class="form-control"
+                placeholder="admin@oppty.in"
+                required
+              />
+            </div>
+
+            <div class="form-group mt-3">
+              <label for="adminPassword">Master Password</label>
+              <input
+                type="password"
+                id="adminPassword"
+                class="form-control"
+                placeholder="••••••••"
+                required
+              />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-outline close-modal-btn">Cancel</button>
+          <button class="btn btn-primary" form="adminLoginForm" type="submit">
+            Authenticate
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty - Dashboard Overview</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                     <img src="../../homepage/assets/tasklogo.png" alt="Oppty Logo" style="height: 40px; max-width: 100%;">
+                </div>
+                <button class="close-sidebar" id="closeSidebar"><i class="ph ph-x"></i></button>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active">
+    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="9"></rect>
+        <rect x="14" y="3" width="7" height="5"></rect>
+        <rect x="14" y="12" width="7" height="9"></rect>
+        <rect x="3" y="16" width="7" height="5"></rect>
+    </svg>
+    <span>Dashboard</span>
+</a>
+                <a href="../tasks/tasks.html" class="nav-item">
+    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l3 3L22 4"></path>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+    </svg>
+    <span>My Tasks</span>
+</a>
+                    
+            
+                
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="ph ph-list"></i>
+                    </button>
+                    <div class="breadcrumbs">
+                        <span class="text-dark">Dashboard</span> / <span class="text-muted">Overview</span>
+                    </div>
+                </div>
+                
+                <div class="header-right">
+                    <div class="user-profile">
+                        <div class="avatar" id="headerAvatar">--</div>
+                        <div class="user-info">
+                            <span class="user-name" id="headerUserName">Loading...</span>
+                            <span class="user-role" id="headerUserRole">User</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-wrapper">
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h1 id="welcomeGreeting">Welcome back!</h1>
+                        <p>Here are the tasks you haven't started yet. Let's get to work!</p>
+                    </div>
+                    <div class="welcome-date" id="currentDate"></div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="section-header">
+                        <h2><i class="ph ph-hourglass-high" style="color: var(--warning-color);"></i> Tasks Awaiting Action</h2>
+                        <span class="badge badge-medium" id="notStartedCount">0 Pending</span>
+                    </div>
+                    
+                    <div class="task-grid" id="notStartedGrid">
+                        <div class="loading-state">Loading your tasks...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

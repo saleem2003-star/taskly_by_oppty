@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oppty — Teams</title>
+    <link rel="stylesheet" href="teams.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+
+        <nav class="main-sidebar">
+            <div class="logo">
+                <img src="../assets/tasklogo.png" style="width: 180px; height: 70px;" alt="Oppty Logo">
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="../dashboard/dashboard.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="9"></rect>
+                            <rect x="14" y="3" width="7" height="5"></rect>
+                            <rect x="14" y="12" width="7" height="9"></rect>
+                            <rect x="3" y="16" width="7" height="5"></rect>
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="teams.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                        <span>Teams</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../tasks/tasks.html">
+                        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 11l3 3L22 4"></path>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                        <span>Tasks</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </nav>
+
+        <div class="main-content">
+
+            <div class="page-header">
+                <div class="page-header-left">
+                    <h1>Teams</h1>
+                    <p>Manage your organization's teams and members</p>
+                    
+                </div>
+                <div>
+                    
+                <button class="add-team-btn" id="openModalBtn">
+                    + Add New Team
+                </button>
+                </div>
+                
+            </div>
+
+            <div class="stats-row">
+                <div class="stat-card">
+                    <span class="stat-number" id="totalTeams">0</span>
+                    <span class="stat-label">Total Teams</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="totalMembers">0</span>
+                    <span class="stat-label">Total Members</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">12</span>
+                    <span class="stat-label">Active Tasks</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2</span>
+                    <span class="stat-label">Departments</span>
+                </div>
+            </div>
+
+            <div class="teams-grid" id="teamsGrid">
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Create New Team</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="newTeamForm">
+                <div class="form-group">
+                    <label for="teamName">Team Name</label>
+                    <input type="text" id="teamName" placeholder="e.g., Design Team" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamDept">Department</label>
+                    <input type="text" id="teamDept" placeholder="e.g., Product" required>
+                </div>
+                <div class="form-group">
+                    <label for="teamEmoji">Team Icon (Emoji)</label>
+                    <input type="text" id="teamEmoji" placeholder="e.g., 🎨" maxlength="2">
+                </div>
+                <div class="form-group">
+                    <label for="teamDesc">Description</label>
+                    <textarea id="teamDesc" rows="3" placeholder="What does this team do?" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="cancel-btn" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="submit-btn">Create Team</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="teams.js"></script>
+</body>
+</html>
