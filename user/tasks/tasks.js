@@ -16,11 +16,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- UI Setup ---
     setupSidebar();
     setupModals();
-    
+    setupProfileDropdown()
     // --- Load Data ---
     loadEmployeeData();
 });
+function setupProfileDropdown() {
+    const toggle = document.getElementById('profileDropdownToggle');
+    const dropdown = document.getElementById('profileDropdown');
 
+    // Toggle menu when clicking the profile area
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevents the click from immediately triggering the document listener
+        dropdown.classList.toggle('show');
+    });
+
+    // Close the menu if the user clicks anywhere else on the screen
+    document.addEventListener('click', (e) => {
+        if (!toggle.contains(e.target)) {
+            dropdown.classList.remove('show');
+        }
+    });
+}
+
+// 3. Add the Logout Function
+function logoutUser() {
+    // Clear the user's session data
+    localStorage.removeItem('currentUserId');
+    // Redirect to login screen
+    window.location.href = '../../index.html'; 
+}
 async function loadEmployeeData() {
     try {
         const response = await fetch(`${API_BASE_URL}/employee/dashboard/${currentUserId}/`);
@@ -29,10 +53,9 @@ async function loadEmployeeData() {
         const data = await response.json();
         
         // Populate Profile Header
-        document.querySelector('.user-name').textContent = data.user.member_name;
-        document.querySelector('.user-role').textContent = data.user.member_role || 'Associate Software Engineer';
-        document.querySelector('.avatar').textContent = data.user.initials;
-        
+        document.getElementById('dropdownUserName').textContent = data.user.member_name;
+        document.getElementById('dropdownUserRole').textContent = data.user.member_role || 'Employee';
+        document.getElementById('headerAvatar').textContent = data.user.initials;
         // Populate Stats
         const statValues = document.querySelectorAll('.stat-value');
         statValues[0].textContent = data.stats.active;

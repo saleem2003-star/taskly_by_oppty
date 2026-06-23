@@ -5,67 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Oppty - Task Management Login</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
   <body>
+    <!-- Floating Particles -->
+    <div class="floating-particles">
+      <div class="particle particle-1"></div>
+      <div class="particle particle-2"></div>
+      <div class="particle particle-3"></div>
+      <div class="particle particle-4"></div>
+      <div class="particle particle-5"></div>
+      <div class="particle particle-6"></div>
+      <div class="particle particle-7"></div>
+      <div class="particle particle-8"></div>
+    </div>
+
+    <!-- Animated Grid Background -->
+    <div class="grid-bg"></div>
+
     <nav class="navbar">
       <div class="nav-container">
-        <a href="#" class="nav-logo">
-          <img src="../homepage/assets/tasklogo.png" style="width: 180px; height: 70px;" class="logo-img" alt="Oppty Logo" />
-        </a>
+        <!-- Logo on the far left — BIGGER & MORE ATTRACTIVE -->
+        <!-- Replace your nav-logo section with this -->
+<!-- Replace your nav-logo section with this -->
+<a href="#" class="nav-logo">
+  <div class="logo-wrapper">
+    <div class="logo-glow-bg"></div>
+    <img
+      src="../homepage/assets/tasklogo.png"
+      class="logo-img"
+      alt="Oppty Logo"
+    />
+  </div>
+</a>
 
-        <a href="https://theoppty.com" target="_blank" class="btn btn-outline">
-                    <i class="ph ph-users-three"></i> <span>HRMS Login</span>
-                </a>
-                <a href="https://chat.theoppty.com" target="_blank" class="btn btn-outline">
-                    <i class="ph ph-chats-circle"></i> <span>Oppty Chat</span>
-                </a>
-                
-                <button class="btn btn-outline" id="openAdminModalBtn">
-                    <i class="ph ph-shield-check"></i> <span>Admin Login</span>
-                </button>
+        <!-- Mobile menu toggle -->
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+          <i class="ph ph-list"></i>
+        </button>
+
+        <!-- Nav actions grouped on the right -->
+        <div class="nav-actions" id="navActions">
+          <a
+            href="https://theoppty.com"
+            target="_blank"
+            class="btn btn-nav-link"
+          >
+            <i class="ph ph-users-three"></i>
+            <span>HRMS Login</span>
+          </a>
+          <a
+            href="https://chat.theoppty.com"
+            target="_blank"
+            class="btn btn-nav-link"
+          >
+            <i class="ph ph-chats-circle"></i>
+            <span>Oppty Chat</span>
+          </a>
+          <button class="btn btn-admin" id="openAdminModalBtn">
+            <i class="ph ph-shield-check"></i>
+            <span>Admin Login</span>
+          </button>
+        </div>
       </div>
     </nav>
 
     <main class="hero-section">
       <div class="bg-shape shape-1"></div>
       <div class="bg-shape shape-2"></div>
+      <div class="bg-shape shape-3"></div>
+      <div class="bg-shape shape-4"></div>
 
       <div class="hero-container">
         <div class="hero-content">
           <div class="badge-pill">
-            <span class="pulse-dot"></span> Oppty Workspace v2.0
+            <span class="pulse-dot"></span>
+            <span>Oppty Workspace v2.0</span>
+            <span class="badge-new">NEW</span>
           </div>
-          <h1 class="hero-title">Manage your tasks with clarity and focus.</h1>
+          <h1 class="hero-title">
+            Manage your tasks with
+            <span class="text-gradient">clarity</span> and
+            <span class="text-gradient">focus.</span>
+          </h1>
           <p class="hero-subtitle">
             Log in to your Oppty employee dashboard to track active tasks,
             submit updates, and manage your timesheets—all in one place.
           </p>
+
           <div class="features-list">
-            <div class="feature-item">
+            <div class="feature-item" style="animation-delay: 0.4s">
               <div class="feature-icon-wrapper">
-                <i class="ph ph-check"></i>
+                <i class="ph ph-check-fat"></i>
               </div>
-              <span>Real-time tracking</span>
+              <div class="feature-text">
+                <span class="feature-title">Real-time tracking</span>
+                <span class="feature-desc"
+                  >Monitor progress as it happens</span
+                >
+              </div>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" style="animation-delay: 0.5s">
               <div class="feature-icon-wrapper">
-                <i class="ph ph-check"></i>
+                <i class="ph ph-check-fat"></i>
               </div>
-              <span>Seamless approvals</span>
+              <div class="feature-text">
+                <span class="feature-title">Seamless approvals</span>
+                <span class="feature-desc"
+                  >One-click approval workflows</span
+                >
+              </div>
             </div>
-            <div class="feature-item">
+            <div class="feature-item" style="animation-delay: 0.6s">
               <div class="feature-icon-wrapper">
-                <i class="ph ph-check"></i>
+                <i class="ph ph-check-fat"></i>
               </div>
-              <span>Integrated timesheets</span>
+              <div class="feature-text">
+                <span class="feature-title">Integrated timesheets</span>
+                <span class="feature-desc"
+                  >Auto-sync with your calendar</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats Counter -->
+          <div class="stats-row">
+            <div class="stat-item">
+              <span class="stat-number" data-count="500">500+</span>
+              <span class="stat-label">Tasks Completed</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number" data-count="50">50+</span>
+              <span class="stat-label">Active Users</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-number">99.9%</span>
+              <span class="stat-label">Uptime</span>
+            </div>
+          </div>
+
+          <!-- Trust indicators -->
+          <div class="trust-strip">
+            <div class="trust-item">
+              <div class="trust-icon-wrap">
+                <i class="ph ph-shield-check"></i>
+              </div>
+              <span>Secure & Encrypted</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-icon-wrap">
+                <i class="ph ph-lightning"></i>
+              </div>
+              <span>Lightning Fast</span>
+            </div>
+            <div class="trust-divider"></div>
+            <div class="trust-item">
+              <div class="trust-icon-wrap">
+                <i class="ph ph-clock"></i>
+              </div>
+              <span>24/7 Available</span>
             </div>
           </div>
         </div>
 
         <div class="hero-form-wrapper">
           <div class="login-card">
+            <div class="card-glow"></div>
             <div class="card-header">
+              <div class="card-header-icon">
+                <i class="ph ph-user-circle"></i>
+              </div>
               <h2>Employee Login</h2>
               <p>Welcome back! Please enter your details.</p>
             </div>
@@ -82,6 +201,7 @@
                     placeholder="name@oppty.in"
                     required
                   />
+                  <div class="input-focus-effect"></div>
                 </div>
               </div>
 
@@ -99,6 +219,10 @@
                     placeholder="••••••••"
                     required
                   />
+                  <button type="button" class="password-toggle" id="togglePassword">
+                    <i class="ph ph-eye"></i>
+                  </button>
+                  <div class="input-focus-effect"></div>
                 </div>
               </div>
 
@@ -110,18 +234,44 @@
               </div>
 
               <button type="submit" class="btn btn-primary btn-block mt-4">
-                Sign In
+                <span class="btn-content">
+                  <i class="ph ph-sign-in"></i>
+                  Sign In
+                </span>
+                <span class="btn-loader" style="display: none">
+                  <i class="ph ph-spinner"></i>
+                  Signing in...
+                </span>
               </button>
+
+              <!-- Social divider -->
+             
             </form>
+
+            <div class="card-footer-text">
+              <i class="ph ph-lock-simple"></i>
+              Your data is protected with 256-bit encryption
+            </div>
           </div>
         </div>
       </div>
     </main>
 
+    <!-- Scroll to top button -->
+    <button class="scroll-top-btn" id="scrollTopBtn">
+      <i class="ph ph-caret-up"></i>
+    </button>
+
+    <!-- Admin Modal -->
     <div class="modal-overlay" id="adminModal">
       <div class="modal-box admin-modal">
         <div class="modal-header">
-          <h3>Admin Portal</h3>
+          <div class="modal-header-left">
+            <div class="modal-icon">
+              <i class="ph ph-shield-check"></i>
+            </div>
+            <h3>Admin Portal</h3>
+          </div>
           <button class="close-modal" id="closeAdminModalBtn">
             <i class="ph ph-x"></i>
           </button>
@@ -135,36 +285,138 @@
           <form id="adminLoginForm">
             <div class="form-group">
               <label for="adminEmail">Admin Email</label>
-              <input
-                type="email"
-                id="adminEmail"
-                class="form-control"
-                placeholder="admin@oppty.in"
-                required
-              />
+              <div class="input-with-icon">
+                <i class="ph ph-envelope-simple"></i>
+                <input
+                  type="email"
+                  id="adminEmail"
+                  class="form-control"
+                  placeholder="admin@oppty.in"
+                  required
+                />
+              </div>
             </div>
 
             <div class="form-group mt-3">
               <label for="adminPassword">Master Password</label>
-              <input
-                type="password"
-                id="adminPassword"
-                class="form-control"
-                placeholder="••••••••"
-                required
-              />
+              <div class="input-with-icon">
+                <i class="ph ph-lock-key"></i>
+                <input
+                  type="password"
+                  id="adminPassword"
+                  class="form-control"
+                  placeholder="••••••••"
+                  required
+                />
+              </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
-          <button class="btn btn-outline close-modal-btn">Cancel</button>
-          <button class="btn btn-primary" form="adminLoginForm" type="submit">
+          <button
+            class="btn btn-outline close-modal-btn"
+            id="cancelAdminBtn"
+          >
+            Cancel
+          </button>
+          <button
+            class="btn btn-primary"
+            form="adminLoginForm"
+            type="submit"
+          >
+            <i class="ph ph-shield-check"></i>
             Authenticate
           </button>
         </div>
       </div>
     </div>
 
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const navActions = document.getElementById("navActions");
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener("click", () => {
+          navActions.classList.toggle("nav-open");
+          const icon = mobileMenuBtn.querySelector("i");
+          if (navActions.classList.contains("nav-open")) {
+            icon.className = "ph ph-x";
+          } else {
+            icon.className = "ph ph-list";
+          }
+        });
+      }
+
+      // Password toggle
+      const togglePassword = document.getElementById("togglePassword");
+      const empPassword = document.getElementById("empPassword");
+      if (togglePassword) {
+        togglePassword.addEventListener("click", () => {
+          const type =
+            empPassword.getAttribute("type") === "password"
+              ? "text"
+              : "password";
+          empPassword.setAttribute("type", type);
+          const icon = togglePassword.querySelector("i");
+          icon.className =
+            type === "password" ? "ph ph-eye" : "ph ph-eye-slash";
+        });
+      }
+
+      // Scroll top button
+      const scrollTopBtn = document.getElementById("scrollTopBtn");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          scrollTopBtn.classList.add("visible");
+        } else {
+          scrollTopBtn.classList.remove("visible");
+        }
+      });
+      if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+      }
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 20) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Admin modal
+      const openAdminModalBtn = document.getElementById("openAdminModalBtn");
+      const adminModal = document.getElementById("adminModal");
+      const closeAdminModalBtn = document.getElementById("closeAdminModalBtn");
+      const cancelAdminBtn = document.getElementById("cancelAdminBtn");
+
+      if (openAdminModalBtn) {
+        openAdminModalBtn.addEventListener("click", () => {
+          adminModal.classList.add("active");
+        });
+      }
+      if (closeAdminModalBtn) {
+        closeAdminModalBtn.addEventListener("click", () => {
+          adminModal.classList.remove("active");
+        });
+      }
+      if (cancelAdminBtn) {
+        cancelAdminBtn.addEventListener("click", () => {
+          adminModal.classList.remove("active");
+        });
+      }
+      if (adminModal) {
+        adminModal.addEventListener("click", (e) => {
+          if (e.target === adminModal) {
+            adminModal.classList.remove("active");
+          }
+        });
+      }
+    </script>
     <script src="script.js"></script>
   </body>
 </html>

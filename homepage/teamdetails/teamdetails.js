@@ -7,7 +7,15 @@ const TEAM_ID = urlParams.get('id');
 if (!TEAM_ID) {
     window.location.href = 'teams.html';
 }
+// ===== LOGOUT FUNCTION =====
+function handleLogout() {
+    // Clear saved authentication tokens or user data if you have any
+    localStorage.removeItem('token'); 
+    sessionStorage.clear();
 
+    // Redirect to the index page
+    window.location.href = '../../index.html';
+}
 // ===== DOM REFERENCES =====
 const openAddMemberBtn  = document.getElementById('openAddMemberBtn');
 const closeAddMemberBtn = document.getElementById('closeAddMemberBtn');

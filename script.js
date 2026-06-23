@@ -84,12 +84,55 @@ employeeLoginForm.addEventListener('submit', async (e) => {
     }
 });
     // Handle Admin Login Submission (2FA logic removed)
-    adminLoginForm.addEventListener('submit', (e) => {
+    // Handle Admin Login Submission
+    adminLoginForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-        const adminEmail = document.getElementById('adminEmail').value;
         
-        // Dynamic feedback updated to reflect removed 2FA
-        alert(`Admin authentication requested for: ${adminEmail}\nVerifying credentials...`);
-        closeModal();
+        // Get values from the form
+        const adminEmail = document.getElementById('adminEmail').value;
+        const password = document.getElementById('adminPassword').value;
+        
+        // UI Loading state
+        const btn = document.querySelector('button[form="adminLoginForm"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="ph ph-spinner-gap"></i> Authenticating...';
+        
+        try {
+            // Send data to your Django Admin API
+            const response = await fetch('https://task-manager.theoppty.com/api/admin/login/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // Assuming your backend expects the key 'email' rather than 'adminEmail'
+                body: JSON.stringify({ 
+                    email: adminEmail, 
+                    password: password 
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                
+                // Optional: Save the admin ID to local storage (if your backend sends it back)
+                // This keeps admin and employee sessions separate
+                if (data.admin_id) {
+                    localStorage.setItem('currentAdminId', data.admin_id);
+                }
+                
+                // Redirect to the Admin Dashboard
+                window.location.href = '../homepage/dashboard/dashboard.html';
+                
+            } else {
+                // Handle 401 Unauthorized or other errors
+                const errorData = await response.json();
+                alert(errorData.message || 'Invalid admin credentials. Please try again.');
+                btn.innerHTML = originalText; // Reset button
+            }
+        } catch (error) {
+            console.error('Admin login error:', error);
+            alert('Server connection failed. Please try again later.');
+            btn.innerHTML = originalText; // Reset button
+        }
     });
 });

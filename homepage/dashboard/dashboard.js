@@ -65,6 +65,17 @@ function renderTodayTasks(tasks) {
     });
 }
 
+
+function handleLogout() {
+    // Optional: Clear any saved authentication tokens or user data
+    localStorage.removeItem('token'); 
+    sessionStorage.clear();
+
+    // Redirect to the index page
+    window.location.href = '../../index.html';
+}
+
+
 function renderRecentUpdates(updates) {
     const container = document.querySelector('.widget-updates .widget-body');
     container.innerHTML = ''; 

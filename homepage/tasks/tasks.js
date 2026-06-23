@@ -27,6 +27,16 @@ const API_BASE_URL = 'https://task-manager.theoppty.com/api';
             });
         }
 
+        // ===== LOGOUT FUNCTION =====
+function handleLogout() {
+    // Clear saved authentication tokens or user data if you have any
+    localStorage.removeItem('token'); 
+    sessionStorage.clear();
+
+    // Redirect to the index page
+    window.location.href = '../../index.html';
+}
+
         // Modal Controls
         const viewModal = document.getElementById('viewTaskModal');
         function closeModal() { viewModal.classList.remove('active'); }

@@ -118,6 +118,16 @@ function addTeamCard(id, name, department, icon, description) {
     teamsGrid.append(card);
 }
 
+// ===== LOGOUT FUNCTION =====
+function handleLogout() {
+    // Clear saved authentication tokens or user data if you have any
+    localStorage.removeItem('token'); 
+    sessionStorage.clear();
+
+    // Redirect to the index page
+    window.location.href = '../../index.html';
+}
+
 // ===== DELETE TEAM =====
 async function deleteTeam(element, id) {
     const card = element.closest('.team-card');

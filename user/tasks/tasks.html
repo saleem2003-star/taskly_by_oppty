@@ -8,199 +8,334 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                     <img src="../../homepage/assets/tasklogo.png" alt="Oppty Logo" style="height: 40px; max-width: 100%;">
-                </div>
-                <button class="close-sidebar" id="closeSidebar"><i class="ph ph-x"></i></button>
+   <div class="app-container">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="../../homepage/assets/tasklogo.png" alt="Oppty Logo" class="logo-img">
             </div>
-            
-            <nav class="sidebar-nav">
-                 <a href="../dashboard/dashboard.html" class="nav-item ">
-    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="9"></rect>
-        <rect x="14" y="3" width="7" height="5"></rect>
-        <rect x="14" y="12" width="7" height="9"></rect>
-        <rect x="3" y="16" width="7" height="5"></rect>
-    </svg>
-    <span>Dashboard</span>
-</a>
-                <a href="#" class="nav-item active">
-    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 11l3 3L22 4"></path>
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-    </svg>
-    <span>My Tasks</span>
-</a>
-               
-            </nav>
-        </aside>
+            <button class="close-sidebar" id="closeSidebar"><i class="ph ph-x"></i></button>
+        </div>
 
-        <main class="main-content">
-            <header class="top-header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menuToggle">
-                        <i class="ph ph-list"></i>
+        <nav class="sidebar-nav">
+            <a href="../dashboard/dashboard.html" class="nav-item">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="9"></rect>
+                        <rect x="14" y="3" width="7" height="5"></rect>
+                        <rect x="14" y="12" width="7" height="9"></rect>
+                        <rect x="3" y="16" width="7" height="5"></rect>
+                    </svg>
+                </div>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3L22 4"></path>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                </div>
+                <span>My Tasks</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-card">
+                <div class="footer-card-icon">
+                    <i class="ph ph-rocket-launch"></i>
+                </div>
+                <p class="footer-card-text">Stay productive today!</p>
+                <div class="footer-card-glow"></div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ph ph-list"></i>
+                </button>
+                <div class="breadcrumbs">
+                    <span class="breadcrumb-icon"><i class="ph ph-house-simple"></i></span>
+                    <span class="text-muted">Dashboard</span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="text-dark">My Tasks</span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="header-actions-top">
+                    <button class="header-action-btn" title="Notifications">
+                        <i class="ph ph-bell"></i>
+                        <span class="notification-dot"></span>
                     </button>
-                    <div class="breadcrumbs">
-                        <span class="text-muted">Dashboard</span> / <span class="text-dark">My Tasks</span>
-                    </div>
                 </div>
-                
-                <div class="header-right">
-                    <div class="user-profile">
-                        <div class="avatar">MA</div>
-                        <div class="user-info">
-                            <span class="user-name"></span>
-                            <span class="user-role">FullStack Developer</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
+                <div class="user-profile" id="profileDropdownToggle">
+                    <div class="avatar" id="headerAvatar">--</div>
+                    <i class="ph ph-caret-down caret-icon"></i>
 
-            <div class="content-wrapper">
-                
-                <div class="page-header">
-                    <div class="header-title-block">
-                        <div class="title-icon">
-                            <i class="ph ph-user"></i>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-avatar-wrap">
+                                <div class="dropdown-avatar">--</div>
+                            </div>
+                            <div class="dropdown-user-info">
+                                <strong id="dropdownUserName">Loading...</strong>
+                                <span id="dropdownUserRole">User</span>
+                            </div>
                         </div>
-                        <div>
-                            <h1>My Workspace</h1>
-                            <p class="subtitle">development(IT)</p>
-                        </div>
+                        <hr class="dropdown-divider">
+                        <button class="logout-btn" onclick="logoutUser()">
+                            <i class="ph ph-sign-out"></i> Logout
+                        </button>
                     </div>
-                    <div class="header-actions">
-                        </div>
                 </div>
+            </div>
+        </header>
 
-                <div class="stats-grid">
-                    <div class="stat-card">
+        <div class="content-wrapper">
+
+            <div class="page-header">
+                <div class="header-title-block">
+                    <div class="title-icon">
+                        <i class="ph ph-user"></i>
+                    </div>
+                    <div>
+                        <h1>My Workspace</h1>
+                        <p class="subtitle">development(IT)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon-wrap stat-icon-blue">
+                        <i class="ph ph-lightning"></i>
+                    </div>
+                    <div class="stat-content">
                         <div class="stat-value">5</div>
-                        <div class="stat-label">ACTIVE TASKS</div>
-                        <div class="stat-border border-gray"></div>
+                        <div class="stat-label">Active Tasks</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-border border-blue"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap stat-icon-orange">
+                        <i class="ph ph-clock-countdown"></i>
+                    </div>
+                    <div class="stat-content">
                         <div class="stat-value">2</div>
-                        <div class="stat-label">PENDING REVIEW</div>
-                        <div class="stat-border border-orange"></div>
+                        <div class="stat-label">Pending Review</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-border border-orange"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap stat-icon-green">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <div class="stat-content">
                         <div class="stat-value">12</div>
-                        <div class="stat-label">COMPLETED (THIS WEEK)</div>
-                        <div class="stat-border border-green"></div>
+                        <div class="stat-label">Completed (Week)</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="stat-border border-green"></div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon-wrap stat-icon-red">
+                        <i class="ph ph-warning-circle"></i>
+                    </div>
+                    <div class="stat-content">
                         <div class="stat-value text-danger">1</div>
-                        <div class="stat-label">OVERDUE TASKS</div>
-                        <div class="stat-border border-red"></div>
+                        <div class="stat-label">Overdue Tasks</div>
                     </div>
+                    <div class="stat-border border-red"></div>
                 </div>
+            </div>
 
-                <div class="table-section">
+            <div class="table-section">
+                <div class="table-section-header">
+                    <div class="table-title-group">
+                        <div class="table-title-icon">
+                            <i class="ph ph-list-checks"></i>
+                        </div>
+                        <h2 class="section-title">Current Tasks</h2>
+                    </div>
+                    <span class="table-count-badge">3 Tasks</span>
+                </div>
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>TASK NAME</th>
+                                <th>PROJECT</th>
+                                <th>PRIORITY</th>
+                                <th>STATUS</th>
+                                <th>DUE DATE</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-medium task-name-link"
+                                    data-task="Implement WebSocket Chat"
+                                    data-req="Implement real-time bidirectional communication for the chat interface. Ensure message history loads correctly and new messages append without refreshing the window.">
+                                    Implement WebSocket Chat
+                                </td>
+                                <td><span class="project-tag">Oppty CRM</span></td>
+                                <td><span class="badge badge-high"><i class="ph ph-arrow-up"></i> High</span></td>
+                                <td><span class="status status-active"><span class="status-dot"></span> In Progress</span></td>
+                                <td><span class="due-date due-today"><i class="ph ph-calendar"></i> Today</span></td>
+                                <td><button class="btn-action action-update" data-task="Implement WebSocket Chat"><i class="ph ph-pencil-simple"></i> Update</button></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-medium task-name-link"
+                                    data-task="Design HR Admin Dashboard"
+                                    data-req="Create the main administrative view for HR. Must include attendance tracking summaries and filtering functionality for the candidate lists.">
+                                    Design HR Admin Dashboard
+                                </td>
+                                <td><span class="project-tag">TechHub</span></td>
+                                <td><span class="badge badge-medium"><i class="ph ph-minus"></i> Medium</span></td>
+                                <td><span class="status status-active"><span class="status-dot"></span> In Progress</span></td>
+                                <td><span class="due-date"><i class="ph ph-calendar"></i> Tomorrow</span></td>
+                                <td><button class="btn-action action-update" data-task="Design HR Admin Dashboard"><i class="ph ph-pencil-simple"></i> Update</button></td>
+                            </tr>
+                            <tr>
+                                <td class="fw-medium task-name-link"
+                                    data-task="Geolocation Check-in Logic"
+                                    data-req="Develop the logic to capture coordinates upon employee check-in. Validate the coordinates against the allowed office radius before approving attendance.">
+                                    Geolocation Check-in Logic
+                                </td>
+                                <td><span class="project-tag">TechHub</span></td>
+                                <td><span class="badge badge-high"><i class="ph ph-arrow-up"></i> High</span></td>
+                                <td><span class="status status-pending"><span class="status-dot"></span> Pending Review</span></td>
+                                <td><span class="due-date due-overdue"><i class="ph ph-calendar"></i> 12 Oct 2023</span></td>
+                                <td><button class="btn-action action-update" data-task="Geolocation Check-in Logic"><i class="ph ph-pencil-simple"></i> Update</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Mobile Card View -->
+            <div class="task-cards-mobile">
+                <div class="mobile-section-header">
                     <h2 class="section-title">Current Tasks</h2>
-                    <div class="table-responsive">
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>TASK NAME</th>
-                                    <th>PROJECT</th>
-                                    <th>PRIORITY</th>
-                                    <th>STATUS</th>
-                                    <th>DUE DATE</th>
-                                    <th>ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="fw-medium task-name-link" data-task="Implement WebSocket Chat" data-req="Implement real-time bidirectional communication for the chat interface. Ensure message history loads correctly and new messages append without refreshing the window.">Implement WebSocket Chat</td>
-                                    <td>Oppty CRM</td>
-                                    <td><span class="badge badge-high">High</span></td>
-                                    <td><span class="status status-active">In Progress</span></td>
-                                    <td>Today</td>
-                                    <td><button class="btn-action action-update" data-task="Implement WebSocket Chat">Update</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-medium task-name-link" data-task="Design HR Admin Dashboard" data-req="Create the main administrative view for HR. Must include attendance tracking summaries and filtering functionality for the candidate lists.">Design HR Admin Dashboard</td>
-                                    <td>TechHub</td>
-                                    <td><span class="badge badge-medium">Medium</span></td>
-                                    <td><span class="status status-active">In Progress</span></td>
-                                    <td>Tomorrow</td>
-                                    <td><button class="btn-action action-update" data-task="Design HR Admin Dashboard">Update</button></td>
-                                </tr>
-                                <tr>
-                                    <td class="fw-medium task-name-link" data-task="Geolocation Check-in Logic" data-req="Develop the logic to capture coordinates upon employee check-in. Validate the coordinates against the allowed office radius before approving attendance.">Geolocation Check-in Logic</td>
-                                    <td>TechHub</td>
-                                    <td><span class="badge badge-high">High</span></td>
-                                    <td><span class="status status-pending">Pending Review</span></td>
-                                    <td>12 Oct 2023</td>
-                                    <td><button class="btn-action action-update" data-task="Geolocation Check-in Logic">Update</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <span class="table-count-badge">3 Tasks</span>
+                </div>
+
+                <div class="task-card-mobile"
+                    data-task="Implement WebSocket Chat"
+                    data-req="Implement real-time bidirectional communication for the chat interface.">
+                    <div class="card-mobile-top">
+                        <span class="badge badge-high"><i class="ph ph-arrow-up"></i> High</span>
+                        <span class="status status-active"><span class="status-dot"></span> In Progress</span>
                     </div>
+                    <h3 class="card-mobile-title">Implement WebSocket Chat</h3>
+                    <div class="card-mobile-meta">
+                        <span class="project-tag">Oppty CRM</span>
+                        <span class="due-date due-today"><i class="ph ph-calendar"></i> Today</span>
+                    </div>
+                    <button class="btn-action action-update card-mobile-btn" data-task="Implement WebSocket Chat">
+                        <i class="ph ph-pencil-simple"></i> Update Progress
+                    </button>
                 </div>
 
-            </div>
-        </main>
-    </div>
+                <div class="task-card-mobile"
+                    data-task="Design HR Admin Dashboard"
+                    data-req="Create the main administrative view for HR.">
+                    <div class="card-mobile-top">
+                        <span class="badge badge-medium"><i class="ph ph-minus"></i> Medium</span>
+                        <span class="status status-active"><span class="status-dot"></span> In Progress</span>
+                    </div>
+                    <h3 class="card-mobile-title">Design HR Admin Dashboard</h3>
+                    <div class="card-mobile-meta">
+                        <span class="project-tag">TechHub</span>
+                        <span class="due-date"><i class="ph ph-calendar"></i> Tomorrow</span>
+                    </div>
+                    <button class="btn-action action-update card-mobile-btn" data-task="Design HR Admin Dashboard">
+                        <i class="ph ph-pencil-simple"></i> Update Progress
+                    </button>
+                </div>
 
-    <div class="modal-overlay" id="reqModal">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3 id="reqModalTitle">Task Requirements</h3>
-                <button class="close-modal"><i class="ph ph-x"></i></button>
+                <div class="task-card-mobile"
+                    data-task="Geolocation Check-in Logic"
+                    data-req="Develop the logic to capture coordinates upon employee check-in.">
+                    <div class="card-mobile-top">
+                        <span class="badge badge-high"><i class="ph ph-arrow-up"></i> High</span>
+                        <span class="status status-pending"><span class="status-dot"></span> Pending Review</span>
+                    </div>
+                    <h3 class="card-mobile-title">Geolocation Check-in Logic</h3>
+                    <div class="card-mobile-meta">
+                        <span class="project-tag">TechHub</span>
+                        <span class="due-date due-overdue"><i class="ph ph-calendar"></i> 12 Oct 2023</span>
+                    </div>
+                    <button class="btn-action action-update card-mobile-btn" data-task="Geolocation Check-in Logic">
+                        <i class="ph ph-pencil-simple"></i> Update Progress
+                    </button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p id="reqModalContent" class="text-muted">Loading requirements...</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline close-modal-btn">Close</button>
-            </div>
+
+        </div>
+    </main>
+</div>
+
+<!-- Requirements Modal -->
+<div class="modal-overlay" id="reqModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3 id="reqModalTitle">Task Requirements</h3>
+            <button class="close-modal"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="modal-body">
+            <p id="reqModalContent" class="text-muted">Loading requirements...</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline close-modal-btn">Close</button>
         </div>
     </div>
+</div>
 
-    <div class="modal-overlay" id="updateModal">
-        <div class="modal-box">
-            <div class="modal-header">
-                <h3>Update Task Progress</h3>
-                <button class="close-modal"><i class="ph ph-x"></i></button>
-            </div>
-            <div class="modal-body">
-                <p class="mb-4">Updating status for: <strong id="updateModalTitle"></strong></p>
-                
-                <div class="form-group">
-                    <label class="text-muted">Status</label>
-                    <select class="form-control" id="statusSelect">
-                        <option>Task Started</option>
-                        <option>25% Completed</option>
-                        <option>50% Completed</option>
-                        <option>75% Completed</option>
-                        <option>100% Completed</option>
-                        <option>Pending Review</option>
-                        <option>Task Completed</option>
-                    </select>
-                </div>
-                
-                <div class="form-group mt-3">
-                    <label class="text-muted">Notes</label>
-                    <textarea class="form-control" id="updateNotes" rows="3" placeholder="Add update notes..."></textarea>
-                </div>
-                
-                <div class="form-group mt-3">
-                    <label class="text-muted">Upload Photo / Proof</label>
-                    <input type="file" id="updateFile" class="form-control file-input" accept="image/*">
-                </div>
+<!-- Update Modal -->
+<div class="modal-overlay" id="updateModal">
+    <div class="modal-box">
+        <div class="modal-header">
+            <h3>Update Task Progress</h3>
+            <button class="close-modal"><i class="ph ph-x"></i></button>
+        </div>
+        <div class="modal-body">
+            <p class="mb-4">Updating status for: <strong id="updateModalTitle"></strong></p>
 
+            <div class="form-group">
+                <label class="text-muted">Status</label>
+                <select class="form-control" id="statusSelect">
+                    <option>Task Started</option>
+                    <option>25% Completed</option>
+                    <option>50% Completed</option>
+                    <option>75% Completed</option>
+                    <option>100% Completed</option>
+                    <option>Pending Review</option>
+                    <option>Task Completed</option>
+                </select>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-outline close-modal-btn">Cancel</button>
-                <button class="btn btn-primary" id="saveUpdateBtn">Save Changes</button>
+
+            <div class="form-group mt-3">
+                <label class="text-muted">Notes</label>
+                <textarea class="form-control" id="updateNotes" rows="3" placeholder="Add update notes..."></textarea>
+            </div>
+
+            <div class="form-group mt-3">
+                <label class="text-muted">Upload Photo / Proof</label>
+                <input type="file" id="updateFile" class="form-control file-input" accept="image/*">
             </div>
         </div>
+        <div class="modal-footer">
+            <button class="btn btn-outline close-modal-btn">Cancel</button>
+            <button class="btn btn-primary" id="saveUpdateBtn">Save Changes</button>
+        </div>
     </div>
+</div>
 
     <script src="tasks.js"></script>
 </body>

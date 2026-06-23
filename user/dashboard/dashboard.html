@@ -11,82 +11,130 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <aside class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <div class="logo">
-                     <img src="../../homepage/assets/tasklogo.png" alt="Oppty Logo" style="height: 40px; max-width: 100%;">
-                </div>
-                <button class="close-sidebar" id="closeSidebar"><i class="ph ph-x"></i></button>
+<div class="app-container">
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <img src="../../homepage/assets/tasklogo.png" alt="Oppty Logo" class="logo-img">
             </div>
-            
-            <nav class="sidebar-nav">
-                <a href="#" class="nav-item active">
-    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="3" width="7" height="9"></rect>
-        <rect x="14" y="3" width="7" height="5"></rect>
-        <rect x="14" y="12" width="7" height="9"></rect>
-        <rect x="3" y="16" width="7" height="5"></rect>
-    </svg>
-    <span>Dashboard</span>
-</a>
-                <a href="../tasks/tasks.html" class="nav-item">
-    <svg class="nav-icon" style="width: 20px; height: 20px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M9 11l3 3L22 4"></path>
-        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-    </svg>
-    <span>My Tasks</span>
-</a>
-                    
-            
-                
-            </nav>
-        </aside>
+            <button class="close-sidebar" id="closeSidebar"><i class="ph ph-x"></i></button>
+        </div>
 
-        <main class="main-content">
-            <header class="top-header">
-                <div class="header-left">
-                    <button class="menu-toggle" id="menuToggle">
-                        <i class="ph ph-list"></i>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="9"></rect>
+                        <rect x="14" y="3" width="7" height="5"></rect>
+                        <rect x="14" y="12" width="7" height="9"></rect>
+                        <rect x="3" y="16" width="7" height="5"></rect>
+                    </svg>
+                </div>
+                <span>Dashboard</span>
+            </a>
+            <a href="../tasks/tasks.html" class="nav-item">
+                <div class="nav-icon-wrap">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 11l3 3L22 4"></path>
+                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                    </svg>
+                </div>
+                <span>My Tasks</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="sidebar-footer-card">
+                <div class="footer-card-icon">
+                    <i class="ph ph-rocket-launch"></i>
+                </div>
+                <p class="footer-card-text">Stay productive today!</p>
+                <div class="footer-card-glow"></div>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="ph ph-list"></i>
+                </button>
+                <div class="breadcrumbs">
+                    <span class="breadcrumb-icon"><i class="ph ph-house-simple"></i></span>
+                    <span class="text-dark">Dashboard</span>
+                    <span class="breadcrumb-sep">/</span>
+                    <span class="text-muted">Overview</span>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <div class="header-actions">
+                    <button class="header-action-btn" title="Notifications">
+                        <i class="ph ph-bell"></i>
+                        <span class="notification-dot"></span>
                     </button>
-                    <div class="breadcrumbs">
-                        <span class="text-dark">Dashboard</span> / <span class="text-muted">Overview</span>
-                    </div>
                 </div>
-                
-                <div class="header-right">
-                    <div class="user-profile">
-                        <div class="avatar" id="headerAvatar">--</div>
-                        <div class="user-info">
-                            <span class="user-name" id="headerUserName">Loading...</span>
-                            <span class="user-role" id="headerUserRole">User</span>
+                <div class="user-profile" id="profileDropdownToggle">
+                    <div class="avatar" id="headerAvatar">--</div>
+                    <i class="ph ph-caret-down caret-icon"></i>
+
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <div class="dropdown-header">
+                            <div class="dropdown-avatar-wrap">
+                                <div class="dropdown-avatar">--</div>
+                            </div>
+                            <div class="dropdown-user-info">
+                                <strong id="dropdownUserName">Loading...</strong>
+                                <span id="dropdownUserRole">User</span>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </header>
-
-            <div class="content-wrapper">
-                <div class="welcome-banner">
-                    <div class="welcome-text">
-                        <h1 id="welcomeGreeting">Welcome back!</h1>
-                        <p>Here are the tasks you haven't started yet. Let's get to work!</p>
-                    </div>
-                    <div class="welcome-date" id="currentDate"></div>
-                </div>
-
-                <div class="dashboard-section">
-                    <div class="section-header">
-                        <h2><i class="ph ph-hourglass-high" style="color: var(--warning-color);"></i> Tasks Awaiting Action</h2>
-                        <span class="badge badge-medium" id="notStartedCount">0 Pending</span>
-                    </div>
-                    
-                    <div class="task-grid" id="notStartedGrid">
-                        <div class="loading-state">Loading your tasks...</div>
+                        <hr class="dropdown-divider">
+                        <button class="logout-btn" onclick="logoutUser()">
+                            <i class="ph ph-sign-out"></i> Logout
+                        </button>
                     </div>
                 </div>
             </div>
-        </main>
-    </div>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="welcome-banner">
+                <div class="welcome-decoration">
+                    <div class="deco-circle deco-1"></div>
+                    <div class="deco-circle deco-2"></div>
+                    <div class="deco-circle deco-3"></div>
+                    <div class="deco-dots"></div>
+                </div>
+                <div class="welcome-text">
+                    <div class="welcome-wave">👋</div>
+                    <h1 id="welcomeGreeting">Welcome back!</h1>
+                    <p>Here are the tasks you haven't started yet. Let's get to work!</p>
+                </div>
+                <div class="welcome-date" id="currentDate"></div>
+            </div>
+
+            <div class="dashboard-section">
+                <div class="section-header">
+                    <div class="section-title-group">
+                        <div class="section-icon-wrap">
+                            <i class="ph ph-hourglass-high"></i>
+                        </div>
+                        <h2>Tasks Awaiting Action</h2>
+                    </div>
+                    <span class="badge badge-medium" id="notStartedCount">0 Pending</span>
+                </div>
+
+                <div class="task-grid" id="notStartedGrid">
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Loading your tasks...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
 
     <script src="dashboard.js"></script>
 </body>
